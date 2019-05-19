@@ -37,3 +37,29 @@ export const CREATE_TASKS = `
     createTask(carId:$carId,task: $task)
   }
 `;
+
+export const UPDATE_CAR = `
+ mutation($car:CarInput){
+   updateCar(car:$car){
+     id
+     make
+     model
+     trim
+     engineType
+     physicalStatus
+     legalStatus
+     sellingStatus
+     financialDetails {
+       purchasePrice
+       purchaseDate
+       purchaseLocation
+       paymentDonePercentage
+       sellingPrice
+       sellingDate
+       sellingLocation
+       sellingDonePercentage
+       margin
+     }
+   }
+ }
+`;

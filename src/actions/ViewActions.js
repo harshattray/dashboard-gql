@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:49+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T07:59:17+05:30
+ * @Last modified time: 2019-05-19T09:06:41+05:30
  */
 
 import axios from "axios";
@@ -12,9 +12,11 @@ import {
   FETCH,
   INIT_CREATE_TASKS,
   ENABLE_MODEL,
-  ENABLE_TRIM
+  ENABLE_TRIM,
+  INIT_UPDATE_CARS,
+  UPDATE_CARS_SUBMIT
 } from "./types";
-import { FETCH_CAR_DATA, CREATE_TASKS } from "./queries";
+import { FETCH_CAR_DATA, CREATE_TASKS, UPDATE_CAR } from "./queries";
 
 export const axiosGraphQL = axios.create({
   baseURL: "https://fcg-fe-test.herokuapp.com/"
@@ -66,6 +68,42 @@ export const initialdataFetch = () => {
 
 export const submitFormData = formData => async (dispatch, getState) => {
   console.log(formData, "formData");
+  const {
+    make,
+    model,
+    trim,
+    physicalStatus,
+    sellingStatus,
+    engineType,
+    legalStatus
+  } = formData;
+  const { carId } = getState().carStack;
+  try {
+    const res = await axiosGraphQL.post("", {
+      query: UPDATE_CAR,
+      variables: {
+        car: {
+          id: carId,
+          make: make,
+          model: model,
+          trim: trim,
+          engineType: engineType,
+          physicalStatus: physicalStatus,
+          legalStatus: legalStatus,
+          sellingStatus: sellingStatus
+        }
+      }
+    });
+    console.log(res);
+    dispatch({
+      type: UPDATE_CARS_SUBMIT,
+      payload: res,
+      enableModel: false,
+      enableTrim: false
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const showTrim = value => dispatch => {

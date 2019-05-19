@@ -2,14 +2,15 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:18:43+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T07:50:14+05:30
+ * @Last modified time: 2019-05-19T09:25:44+05:30
  */
 
 import {
   INIT_FETCH_DETAILS,
   INIT_CREATE_TASKS,
   ENABLE_TRIM,
-  ENABLE_MODEL
+  ENABLE_MODEL,
+  UPDATE_CARS_SUBMIT
 } from "../actions/types";
 import { buildMakeJson, buildTrimJson, buildModelJson } from "./helper";
 
@@ -49,6 +50,11 @@ export default (state = initial_state, action) => {
       return {
         ...state,
         enableModel: action.enableModel
+      };
+    case UPDATE_CARS_SUBMIT:
+      return {
+        ...state,
+        carStackDetails: action.payload.data.data.updateCar
       };
     default:
       return state;
