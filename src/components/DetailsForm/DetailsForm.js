@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-13T14:45:50+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T07:38:27+05:30
+ * @Last modified time: 2019-05-19T13:33:42+05:30
  */
 import React, { Component } from "react";
 import { Form, Loader } from "semantic-ui-react";
@@ -49,7 +49,11 @@ class SubmitDetailsForms extends Component {
       showModelField,
       showTrim,
       enableTrim,
-      enableModel
+      enableModel,
+      physicalStatusCheck,
+      legalStatusCheck,
+      engineTypeCheck,
+      sellingStatusCheck
     } = this.props;
     return (
       <Form
@@ -62,28 +66,32 @@ class SubmitDetailsForms extends Component {
             <Field
               name="physicalStatus"
               component={renderDropdown}
-              placeholder="Physical Status"
+              placeholder={
+                physicalStatusCheck ? physicalStatusCheck : "Physical Status"
+              }
               label="Physical Status"
               options={physicalstatus[0].physical_status}
             />
             <Field
               name="legalStatus"
               component={renderDropdown}
-              placeholder="Legal Status"
+              placeholder={legalStatusCheck ? legalStatusCheck : "Legal Status"}
               label="Legal Status"
               options={legalStatus[0].legal_status}
             />
             <Field
               name="sellingStatus"
               component={renderDropdown}
-              placeholder="Selling Status"
+              placeholder={
+                sellingStatusCheck ? sellingStatusCheck : "Selling Status"
+              }
               label="Selling Status"
               options={sellingStatus[0].selling_status}
             />
             <Field
               name="engineType"
               component={renderDropdown}
-              placeholder="Engine Type"
+              placeholder={engineTypeCheck ? engineTypeCheck : "Engine Type"}
               label="Engine Type"
               options={engineType[0].engine_type}
             />
@@ -92,7 +100,7 @@ class SubmitDetailsForms extends Component {
             <Field
               name="make"
               component={renderCarOptions}
-              placeholder="Make"
+              placeholder={carInfo.make ? carInfo.make : "Select Make"}
               label="Make"
               showModelField={showModelField}
               enableModel={enableModel}
@@ -102,7 +110,7 @@ class SubmitDetailsForms extends Component {
             <Field
               name="model"
               component={renderCarOptions}
-              placeholder="Select Model"
+              placeholder={carInfo.model ? carInfo.model : "Select Model"}
               label="Model"
               showTrim={showTrim}
               enableTrim={enableTrim}
@@ -112,7 +120,7 @@ class SubmitDetailsForms extends Component {
             <Field
               name="trim"
               component={renderCarOptions}
-              placeholder="Trim"
+              placeholder={carInfo.trim ? carInfo.trim : "Select Trim"}
               label="Trim"
               options={trimJson}
               disabled={enableTrim ? false : true}
@@ -139,7 +147,11 @@ function mapStateToProps({ carStack, form }) {
     modelJson: carStack.modelStack,
     trimJson: carStack.trimStack,
     enableTrim: carStack.enableTrim,
-    enableModel: carStack.enableModel
+    enableModel: carStack.enableModel,
+    physicalStatusCheck: carStack.physicalStatus,
+    legalStatusCheck: carStack.legalStatus,
+    engineTypeCheck: carStack.engineType,
+    sellingStatusCheck: carStack.sellingStatus
   };
 }
 
