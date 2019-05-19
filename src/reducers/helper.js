@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-19T05:12:36+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T06:19:44+05:30
+ * @Last modified time: 2019-05-19T07:41:32+05:30
  */
 export const buildMakeJson = build => {
   return build.make

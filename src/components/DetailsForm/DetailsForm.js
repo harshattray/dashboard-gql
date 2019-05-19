@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-13T14:45:50+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T06:59:24+05:30
+ * @Last modified time: 2019-05-19T07:38:27+05:30
  */
 import React, { Component } from "react";
 import { Form, Loader } from "semantic-ui-react";
@@ -12,7 +12,7 @@ import { reduxForm, Field, formValueSelector, reset } from "redux-form";
 import {
   submitFormData,
   showTrim,
-  showMockField
+  showModelField
 } from "../../actions/ViewActions";
 import { Button, Header, Icon, Modal } from "semantic-ui-react";
 import { renderDropdown } from "../renderDropdownComponent/renderDropdownComponent";
@@ -46,8 +46,10 @@ class SubmitDetailsForms extends Component {
       makeJson,
       trimJson,
       modelJson,
-      showMockField,
-      showTrim
+      showModelField,
+      showTrim,
+      enableTrim,
+      enableModel
     } = this.props;
     return (
       <Form
@@ -92,8 +94,10 @@ class SubmitDetailsForms extends Component {
               component={renderCarOptions}
               placeholder="Make"
               label="Make"
-              showMockField={showMockField}
+              showModelField={showModelField}
+              enableModel={enableModel}
               options={makeJson}
+              disabled={false}
             />
             <Field
               name="model"
@@ -101,7 +105,9 @@ class SubmitDetailsForms extends Component {
               placeholder="Select Model"
               label="Model"
               showTrim={showTrim}
+              enableTrim={enableTrim}
               options={modelJson}
+              disabled={enableModel ? false : true}
             />
             <Field
               name="trim"
@@ -109,6 +115,7 @@ class SubmitDetailsForms extends Component {
               placeholder="Trim"
               label="Trim"
               options={trimJson}
+              disabled={enableTrim ? false : true}
             />
           </div>
         </Form.Group>
@@ -130,13 +137,15 @@ function mapStateToProps({ carStack, form }) {
     carInfo: carStack.carStackDetails,
     makeJson: carStack.makeStack,
     modelJson: carStack.modelStack,
-    trimJson: carStack.trimStack
+    trimJson: carStack.trimStack,
+    enableTrim: carStack.enableTrim,
+    enableModel: carStack.enableModel
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { submitFormData, showMockField, showTrim },
+    { submitFormData, showModelField, showTrim },
     dispatch
   );
 }

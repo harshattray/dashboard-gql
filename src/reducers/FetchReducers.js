@@ -2,20 +2,20 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:18:43+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T07:03:04+05:30
+ * @Last modified time: 2019-05-19T07:50:14+05:30
  */
 
 import {
   INIT_FETCH_DETAILS,
   INIT_CREATE_TASKS,
   ENABLE_TRIM,
-  ENABLE_MOCK
+  ENABLE_MODEL
 } from "../actions/types";
 import { buildMakeJson, buildTrimJson, buildModelJson } from "./helper";
 
 const initial_state = {
   isFetching: true,
-  enableMock: false,
+  enableModel: false,
   enableTrim: false
 };
 
@@ -32,7 +32,7 @@ export default (state = initial_state, action) => {
         trimStack: buildModelJson(action.payload.data.data.car),
         isFetching: action.isFetching,
         enableTrim: action.enableTrim,
-        enableMock: action.enableMock
+        enableModel: action.enableModel
       };
     case INIT_CREATE_TASKS:
       return {
@@ -45,10 +45,10 @@ export default (state = initial_state, action) => {
         ...state,
         enableTrim: action.enableTrim
       };
-    case ENABLE_MOCK:
+    case ENABLE_MODEL:
       return {
         ...state,
-        enableMock: action.enableMock
+        enableModel: action.enableModel
       };
     default:
       return state;

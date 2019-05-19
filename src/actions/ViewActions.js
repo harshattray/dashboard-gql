@@ -2,18 +2,19 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:49+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T07:03:53+05:30
+ * @Last modified time: 2019-05-19T07:59:17+05:30
  */
 
 import axios from "axios";
 import { query } from "gql-query-builder";
-import { INIT_FETCH_DETAILS, FETCH, INIT_CREATE_TASKS } from "./types";
 import {
-  FETCH_CAR_DATA,
-  CREATE_TASKS,
-  ENABLE_MOCK,
+  INIT_FETCH_DETAILS,
+  FETCH,
+  INIT_CREATE_TASKS,
+  ENABLE_MODEL,
   ENABLE_TRIM
-} from "./queries";
+} from "./types";
+import { FETCH_CAR_DATA, CREATE_TASKS } from "./queries";
 
 export const axiosGraphQL = axios.create({
   baseURL: "https://fcg-fe-test.herokuapp.com/"
@@ -29,7 +30,7 @@ export const getDetails = () => async (dispatch, getState) => {
       type: INIT_FETCH_DETAILS,
       payload: res,
       isFetching: false,
-      enableMock: false,
+      enableModel: false,
       enableTrim: false
     });
   } catch (error) {
@@ -74,9 +75,9 @@ export const showTrim = value => dispatch => {
   });
 };
 
-export const showMockField = value => dispatch => {
+export const showModelField = value => dispatch => {
   dispatch({
-    type: ENABLE_MOCK,
-    enableMock: value
+    type: ENABLE_MODEL,
+    enableModel: value
   });
 };

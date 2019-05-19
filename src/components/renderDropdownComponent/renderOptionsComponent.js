@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-19T06:50:39+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T06:59:46+05:30
+ * @Last modified time: 2019-05-19T07:59:24+05:30
  */
 
 import React from "react";
@@ -25,9 +25,18 @@ export const renderCarOptions = ({
   options,
   input,
   showTrim,
-  showMockField
+  showModelField,
+  enableModel,
+  enableTrim,
+  disabled
 }) => {
   function handleSelect(e, { value }) {
+    if (input.name === "make") {
+      enableModel ? showModelField(false) : showModelField(true);
+    }
+    if (input.name === "model") {
+      enableTrim ? showTrim(false) : showTrim(true);
+    }
     return input.onChange(value);
   }
   if (!options) {
@@ -41,7 +50,7 @@ export const renderCarOptions = ({
       placeholder={placeholder}
       {...input}
       onChange={handleSelect}
-      disabled={false}
+      disabled={disabled}
     />
   );
 };
