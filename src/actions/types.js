@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:25+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T03:59:30+05:30
+ * @Last modified time: 2019-05-20T05:45:34+05:30
  */
 export const INIT_FETCH_DETAILS = "INIT_FETCH_DETAILS";
 export const FETCH_DETAILS = "FETCH_DETAILS";
@@ -13,3 +13,5 @@ export const ENABLE_MODEL = "ENABLE_MODEL";
 export const ENABLE_TRIM = "ENABLE_TRIM";
 export const INIT_UPDATE_CARS = "INIT_UPDATE_CARS";
 export const UPDATE_CARS_SUBMIT = "UPDATE_CARS_SUBMIT";
+export const OPEN_MODAL = "OPEN_MODAL";
+export const CLOSE_MODAL = "CLOSE_MODAL";

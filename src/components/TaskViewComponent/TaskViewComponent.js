@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-19T13:49:45+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T05:04:52+05:30
+ * @Last modified time: 2019-05-20T06:21:39+05:30
  */
 
 import React, { Fragment, Component } from "react";
@@ -11,14 +11,15 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { reduxForm, Field, formValueSelector, reset } from "redux-form";
 import { validate } from "../../validate";
-import { fetchTasks } from "../../actions/TaskActions";
+import { fetchTasks, openModal } from "../../actions/TaskActions";
+import CreateTasksModalComponent from "../CreateTasksModalComponent/CreateTasksModalComponent";
 
 class TaskViewComponent extends Component {
   componentDidMount() {
     this.props.fetchTasks(this.props.carId);
   }
   render() {
-    const { isFetchingTasks, tasksInfo } = this.props;
+    const { isFetchingTasks, tasksInfo, openModal } = this.props;
     return (
       <Fragment>
         {isFetchingTasks ? (
@@ -38,10 +39,11 @@ class TaskViewComponent extends Component {
               )}
             </Card.Content>
             <Card.Content extra>
-              <Button basic color="green">
-                Approve
+              <Button basic color="green" onClick={openModal}>
+                Create Tasks
               </Button>
             </Card.Content>
+            <CreateTasksModalComponent />
           </Card>
         )}
       </Fragment>
@@ -59,7 +61,7 @@ function mapStateToProps({ carStack, form, tasksStack }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTasks }, dispatch);
+  return bindActionCreators({ fetchTasks, openModal }, dispatch);
 }
 
 const afterSubmitdata = (result, dispatch) => dispatch(reset("listViewForm"));

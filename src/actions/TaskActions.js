@@ -2,11 +2,17 @@
  * @Author: harsha
  * @Date:   2019-05-20T03:56:12+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T04:37:29+05:30
+ * @Last modified time: 2019-05-20T07:21:43+05:30
  */
 import axios from "axios";
 import { query } from "gql-query-builder";
-import { INIT_FETCH_TASKS, FETCH_TASKS_DATA, INIT_CREATE_TASKS } from "./types";
+import {
+  INIT_FETCH_TASKS,
+  FETCH_TASKS_DATA,
+  INIT_CREATE_TASKS,
+  OPEN_MODAL,
+  CLOSE_MODAL
+} from "./types";
 import { CREATE_TASKS, FETCH_TASKS } from "./queries";
 import { axiosGraphQL } from "./queries";
 
@@ -34,21 +40,46 @@ export const initFetchTasks = () => {
   };
 };
 
-export const createTasksAction = () => async (dispatch, getState) => {
+export const createTasksAction = formData => async (dispatch, getState) => {
+  const { taskTypes, taskComments } = formData;
+  const { carId } = getState().carStack;
   try {
     const res = await axiosGraphQL.post("", {
       query: CREATE_TASKS,
       variables: {
-        carId: "20664c0d-266e-4950-a70d-c0a63afd510b",
-        task: { taskType: "ADD_DOCUMENT", comment: "Fishing license" }
+        carId: carId,
+        task: { taskType: taskTypes, comment: taskComments }
       }
     });
-    console.log(res);
     dispatch({
       type: INIT_CREATE_TASKS,
       payload: res
     });
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const openModal = () => async dispatch => {
+  try {
+    dispatch({
+      type: OPEN_MODAL,
+      openModal: true
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const closeModal = () => async (dispatch, getState) => {
+  const { carId } = getState().carStack;
+  try {
+    dispatch({
+      type: CLOSE_MODAL,
+      openModal: false
+    });
+    dispatch(fetchTasks(carId));
+  } catch (e) {
+    console.log(e);
   }
 };

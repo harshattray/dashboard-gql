@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-13T14:45:50+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T13:33:42+05:30
+ * @Last modified time: 2019-05-20T06:34:52+05:30
  */
 import React, { Component } from "react";
 import { Form, Loader } from "semantic-ui-react";
@@ -24,8 +24,6 @@ import {
   sellingStatus
 } from "../constants";
 import { validate } from "../../validate";
-
-console.log(physicalstatus, "wtf");
 
 class SubmitDetailsForms extends Component {
   /**

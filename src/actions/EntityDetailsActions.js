@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:49+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T04:09:24+05:30
+ * @Last modified time: 2019-05-20T07:07:17+05:30
  */
 
 import axios from "axios";
@@ -45,7 +45,6 @@ export const initialdataFetch = () => {
 };
 
 export const submitFormData = formData => async (dispatch, getState) => {
-  console.log(formData, "formData");
   const {
     make,
     model,

@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-18T06:05:18+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T06:32:58+05:30
+ * @Last modified time: 2019-05-20T06:39:05+05:30
  */
 
 export const physicalstatus = [
@@ -98,6 +98,28 @@ export const sellingStatus = [
         key: "reserved",
         text: "Reserved",
         value: "RESERVED"
+      }
+    ]
+  }
+];
+
+export const taskTypes = [
+  {
+    task_types: [
+      {
+        key: "document",
+        text: "Add Document ",
+        value: "ADD_DOCUMENT"
+      },
+      {
+        key: "washcar",
+        text: "Wash Car",
+        value: "WASH_CAR"
+      },
+      {
+        key: "addpayment",
+        text: "Add Payment Details",
+        value: "ADD_PAYMENT_DETAILS"
       }
     ]
   }
