@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ViewComponent expect to contain EntityDetailsComponent  1`] = `ShallowWrapper {}`;
+
+exports[`Renders ViewComponent expect to contain TaskViewComponent  1`] = `ShallowWrapper {}`;
+
+exports[`Renders ViewComponent expect to render View Component 1`] = `ShallowWrapper {}`;

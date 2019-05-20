@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T10:59:37+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T12:53:29+05:30
+ * @Last modified time: 2019-05-20T23:32:01+05:30
  */
 
 import React, { Component, Fragment } from "react";
@@ -22,7 +22,7 @@ import { reduxForm, Field, formValueSelector, reset } from "redux-form";
 import { renderCheckBox } from "../renderCheckboxComponent/renderCheckBoxComponent";
 import { updateTask } from "../../actions/TaskActions";
 
-class TaskListComponent extends Component {
+export class TaskListComponent extends Component {
   render() {
     const { tasksInfo, updateTask, handleSubmit } = this.props;
     return (
@@ -37,7 +37,7 @@ class TaskListComponent extends Component {
   }
 }
 
-const RenderTaskList = ({ tasksInfo, updateTask, handleSubmit }) => {
+export const RenderTaskList = ({ tasksInfo, updateTask, handleSubmit }) => {
   const listRenderer = tasksInfo.map(data => {
     return (
       <div className="list-view" key={data.id}>

@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-19T13:49:45+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T13:19:46+05:30
+ * @Last modified time: 2019-05-20T20:20:18+05:30
  */
 
 import React, { Fragment, Component } from "react";
@@ -14,7 +14,7 @@ import { fetchTasks, openModal } from "../../actions/TaskActions";
 import CreateTasksModalComponent from "../CreateTasksModalComponent/CreateTasksModalComponent";
 import TaskListComponent from "../TaskListComponent/TaskListComponent";
 
-class TaskViewComponent extends Component {
+export class TaskViewComponent extends Component {
   componentDidMount() {
     this.props.fetchTasks(this.props.carId);
   }

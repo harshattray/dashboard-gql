@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-13T14:45:50+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T12:46:05+05:30
+ * @Last modified time: 2019-05-20T23:49:53+05:30
  */
 import React, { Component } from "react";
 import { Form, Loader } from "semantic-ui-react";
@@ -25,7 +25,7 @@ import {
 } from "../constants";
 import { validate } from "../../validate";
 
-class SubmitDetailsForms extends Component {
+export class SubmitDetailsForms extends Component {
   /**
    * [handleDetailSubmit Form submit handler]
    * @param  {[type]} data [description]
