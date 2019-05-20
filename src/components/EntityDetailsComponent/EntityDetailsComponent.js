@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T03:21:48+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T04:30:33+05:30
+ * @Last modified time: 2019-05-20T14:35:36+05:30
  */
 import React, { Fragment, Component } from "react";
 import { Button, Divider, Form, Grid, Segment, Card } from "semantic-ui-react";
@@ -25,7 +25,7 @@ class EntityDetailsComponent extends Component {
             <Grid.Column>
               <Card
                 color="teal"
-                image="https://react.semantic-ui.com/images/wireframe/image.png"
+                image="https://www.drivespark.com/car-image/640x480x100/car/300x225x41244514-bmw_3_series_gran_turismo.jpg.pagespeed.ic.ll0Wst0Uak.jpg"
               />
             </Grid.Column>
             <Grid.Column>
