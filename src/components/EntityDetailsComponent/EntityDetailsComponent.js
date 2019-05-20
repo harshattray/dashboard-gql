@@ -2,13 +2,13 @@
  * @Author: harsha
  * @Date:   2019-05-17T03:21:48+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T06:14:52+05:30
+ * @Last modified time: 2019-05-20T04:30:33+05:30
  */
 import React, { Fragment, Component } from "react";
-import { Button, Divider, Form, Grid, Segment, Image } from "semantic-ui-react";
+import { Button, Divider, Form, Grid, Segment, Card } from "semantic-ui-react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { createTasksAction } from "../../actions/ViewActions";
+import { createTasksAction } from "../../actions/TaskActions";
 import FinancialDetailsComponent from "../FinancialDetailsComponent/FinancialDetailsComponent";
 import SubmitDetailsForms from "../DetailsForm/DetailsForm";
 
@@ -23,9 +23,9 @@ class EntityDetailsComponent extends Component {
         <Segment placeholder>
           <Grid columns={3} relaxed="very" stackable>
             <Grid.Column>
-              <Image
-                src="https://react.semantic-ui.com/images/wireframe/image.png"
-                size="small"
+              <Card
+                color="teal"
+                image="https://react.semantic-ui.com/images/wireframe/image.png"
               />
             </Grid.Column>
             <Grid.Column>

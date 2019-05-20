@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:19:53+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T10:41:19+05:30
+ * @Last modified time: 2019-05-20T05:03:07+05:30
  */
 import React, { Component, Fragment } from "react";
 import { bindActionCreators } from "redux";
@@ -11,8 +11,9 @@ import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import gql from "graphql-tag";
-import { getDetails } from "../../actions/ViewActions";
+import { getDetails } from "../../actions/EntityDetailsActions";
 import EntityDetailsComponent from "../EntityDetailsComponent/EntityDetailsComponent";
+import TaskViewComponent from "../TaskViewComponent/TaskViewComponent";
 import { Dimmer, Loader, Segment, Card } from "semantic-ui-react";
 
 class ViewComponent extends Component {
@@ -21,7 +22,6 @@ class ViewComponent extends Component {
   }
   render() {
     const { isFetching, carDataStack } = this.props;
-    console.log(carDataStack.carStackDetails, "wtff");
     return (
       <Fragment>
         {isFetching ? (
@@ -40,6 +40,7 @@ class ViewComponent extends Component {
               }`}
             />
             <EntityDetailsComponent />
+            <TaskViewComponent />
           </Card.Group>
         )}
       </Fragment>

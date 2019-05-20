@@ -13,7 +13,7 @@ import {
   submitFormData,
   showTrim,
   showModelField
-} from "../../actions/ViewActions";
+} from "../../actions/EntityDetailsActions";
 import { Button, Header, Icon, Modal } from "semantic-ui-react";
 import { renderDropdown } from "../renderDropdownComponent/renderDropdownComponent";
 import { renderCarOptions } from "../renderDropdownComponent/renderOptionsComponent";

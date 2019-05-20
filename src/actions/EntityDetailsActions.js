@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:49+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T09:06:41+05:30
+ * @Last modified time: 2019-05-20T04:09:24+05:30
  */
 
 import axios from "axios";
@@ -17,10 +17,7 @@ import {
   UPDATE_CARS_SUBMIT
 } from "./types";
 import { FETCH_CAR_DATA, CREATE_TASKS, UPDATE_CAR } from "./queries";
-
-export const axiosGraphQL = axios.create({
-  baseURL: "https://fcg-fe-test.herokuapp.com/"
-});
+import { axiosGraphQL } from "./queries";
 
 export const getDetails = () => async (dispatch, getState) => {
   try {
@@ -34,25 +31,6 @@ export const getDetails = () => async (dispatch, getState) => {
       isFetching: false,
       enableModel: false,
       enableTrim: false
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const createTasksAction = () => async (dispatch, getState) => {
-  try {
-    const res = await axiosGraphQL.post("", {
-      query: CREATE_TASKS,
-      variables: {
-        carId: "20664c0d-266e-4950-a70d-c0a63afd510b",
-        task: { taskType: "ADD_DOCUMENT", comment: "Fishing license" }
-      }
-    });
-    console.log(res);
-    dispatch({
-      type: INIT_CREATE_TASKS,
-      payload: res
     });
   } catch (error) {
     console.log(error);

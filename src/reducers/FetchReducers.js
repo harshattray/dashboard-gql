@@ -2,12 +2,11 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:18:43+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T13:24:32+05:30
+ * @Last modified time: 2019-05-20T04:24:21+05:30
  */
 
 import {
   INIT_FETCH_DETAILS,
-  INIT_CREATE_TASKS,
   ENABLE_TRIM,
   ENABLE_MODEL,
   UPDATE_CARS_SUBMIT
@@ -46,12 +45,6 @@ export default (state = initial_state, action) => {
         legalStatus: stringifyLegalStatus(action.payload.data.data.car),
         engineType: stringifyEngineType(action.payload.data.data.car),
         sellingStatus: stringifySellingStatus(action.payload.data.data.car)
-      };
-    case INIT_CREATE_TASKS:
-      return {
-        ...state,
-        carTasks: action.payload.data,
-        isFetching: action.isFetching
       };
     case ENABLE_TRIM:
       return {

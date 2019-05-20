@@ -6,6 +6,12 @@
  *
  */
 
+import axios from "axios";
+
+export const axiosGraphQL = axios.create({
+  baseURL: "https://fcg-fe-test.herokuapp.com/"
+});
+
 export const FETCH_CAR_DATA = `
    query ($id:ID!) {
      car(id: $id) {
@@ -32,12 +38,6 @@ export const FETCH_CAR_DATA = `
    }
  `;
 
-export const CREATE_TASKS = `
-  mutation ($carId: ID!,$task: TaskInput!){
-    createTask(carId:$carId,task: $task)
-  }
-`;
-
 export const UPDATE_CAR = `
  mutation($car:CarInput){
    updateCar(car:$car){
@@ -62,4 +62,21 @@ export const UPDATE_CAR = `
      }
    }
  }
+`;
+
+export const CREATE_TASKS = `
+  mutation ($carId: ID!,$task: TaskInput!){
+    createTask(carId:$carId,task: $task)
+  }
+`;
+
+export const FETCH_TASKS = `
+query($carId:ID!){
+  tasks(carId:$carId){
+    id
+    taskType
+    comment
+    completed
+  }
+}
 `;
