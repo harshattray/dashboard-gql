@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:18:43+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T04:24:21+05:30
+ * @Last modified time: 2019-05-20T15:08:28+05:30
  */
 
 import {
@@ -36,8 +36,8 @@ export default (state = initial_state, action) => {
         carId: action.payload.data.data.car.id,
         financialDetails: action.payload.data.data.car.financialDetails,
         makeStack: buildMakeJson(action.payload.data.data.car),
-        modelStack: buildTrimJson(action.payload.data.data.car),
-        trimStack: buildModelJson(action.payload.data.data.car),
+        modelStack: buildModelJson(action.payload.data.data.car),
+        trimStack: buildTrimJson(action.payload.data.data.car),
         isFetching: action.isFetching,
         enableTrim: action.enableTrim,
         enableModel: action.enableModel,
