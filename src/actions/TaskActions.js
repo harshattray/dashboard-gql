@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T03:56:12+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T07:21:43+05:30
+ * @Last modified time: 2019-05-20T13:34:04+05:30
  */
 import axios from "axios";
 import { query } from "gql-query-builder";
@@ -11,9 +11,11 @@ import {
   FETCH_TASKS_DATA,
   INIT_CREATE_TASKS,
   OPEN_MODAL,
-  CLOSE_MODAL
+  CLOSE_MODAL,
+  INIT_UPDATE_TASKS,
+  UPDATE_TASKS_SUBMIT
 } from "./types";
-import { CREATE_TASKS, FETCH_TASKS } from "./queries";
+import { CREATE_TASKS, FETCH_TASKS, UPDATE_TASKS } from "./queries";
 import { axiosGraphQL } from "./queries";
 
 export const fetchTasks = carid => async (dispatch, getState) => {
@@ -82,4 +84,30 @@ export const closeModal = () => async (dispatch, getState) => {
   } catch (e) {
     console.log(e);
   }
+};
+
+export const updateTask = (completed, taskid) => async (dispatch, getState) => {
+  const { carId } = getState().carStack;
+  dispatch(initUpdatetasks());
+  try {
+    const res = await axiosGraphQL.post("", {
+      query: UPDATE_TASKS,
+      variables: { id: taskid, completed: completed }
+    });
+    dispatch({
+      type: UPDATE_TASKS_SUBMIT,
+      payload: res,
+      isFetchingTasks: false
+    });
+    dispatch(fetchTasks(carId));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const initUpdatetasks = () => {
+  return {
+    type: INIT_UPDATE_TASKS,
+    isFetchingTasks: true
+  };
 };

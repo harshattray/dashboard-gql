@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T04:21:14+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T06:04:14+05:30
+ * @Last modified time: 2019-05-20T13:33:33+05:30
  */
 
 import {
@@ -10,11 +10,14 @@ import {
   FETCH_TASKS_DATA,
   INIT_CREATE_TASKS,
   OPEN_MODAL,
-  CLOSE_MODAL
+  CLOSE_MODAL,
+  INIT_UPDATE_TASKS,
+  UPDATE_TASKS_SUBMIT
 } from "../actions/types";
 const initial_state = {
   isFetchingTasks: true,
-  openModalSwitch: false
+  openModalSwitch: false,
+  isUpdatingTasks: false
 };
 
 export default (state = initial_state, action) => {
@@ -45,6 +48,17 @@ export default (state = initial_state, action) => {
       return {
         ...state,
         openModalSwitch: action.openModal
+      };
+    case INIT_UPDATE_TASKS:
+      return {
+        ...state,
+        isFetchingTasks: action.isUpdatingTasks
+      };
+    case UPDATE_TASKS_SUBMIT:
+      return {
+        ...state,
+        updatedTasksList: action.payload.data.updateTask,
+        isFetchingTasks: action.isUpdatingTasks
       };
     default:
       return state;

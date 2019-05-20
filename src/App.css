@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-13T22:46:53+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-18T04:51:06+05:30
+ * @Last modified time: 2019-05-20T11:32:59+05:30
  */
 
 
@@ -15,6 +15,23 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
+}
+
+.project-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.list-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #f7f7f7;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
 }
 
   .Branch-header {

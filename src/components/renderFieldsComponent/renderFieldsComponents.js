@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-16T18:52:03+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T07:01:56+05:30
+ * @Last modified time: 2019-05-20T13:36:08+05:30
  */
 
 import React from "react";
@@ -24,7 +24,6 @@ export const renderFields = ({
   textField,
   meta: { touched, error, warning }
 }) => {
-  console.log(error, "error object");
   return (
     <div>
       <Form.Input

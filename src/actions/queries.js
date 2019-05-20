@@ -80,3 +80,14 @@ query($carId:ID!){
   }
 }
 `;
+
+export const UPDATE_TASKS = `
+mutation($id:ID!,$completed:Boolean!){
+  updateTask(id:$id,completed:$completed){
+    id
+    taskType
+    comment
+    completed
+  }
+}
+`;

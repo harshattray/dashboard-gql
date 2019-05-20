@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T06:34:08+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T07:08:42+05:30
+ * @Last modified time: 2019-05-20T12:45:21+05:30
  */
 
 import React, { Component } from "react";
@@ -17,7 +17,7 @@ import { createTasksAction } from "../../actions/TaskActions";
 import { validate } from "../../validate";
 
 class CreateTaskForm extends Component {
-  handleSignUpSubmit = data => {
+  handleTasksSubmit = data => {
     this.props.createTasksAction(data);
   };
   render() {
@@ -25,7 +25,7 @@ class CreateTaskForm extends Component {
     return (
       <Form
         name="createTaskForm"
-        onSubmit={handleSubmit(this.handleSignUpSubmit)}
+        onSubmit={handleSubmit(this.handleTasksSubmit)}
         noValidate
       >
         <Form.Group className="ui grid">

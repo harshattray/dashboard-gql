@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:19:53+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T05:03:07+05:30
+ * @Last modified time: 2019-05-20T10:54:34+05:30
  */
 import React, { Component, Fragment } from "react";
 import { bindActionCreators } from "redux";
@@ -14,7 +14,7 @@ import gql from "graphql-tag";
 import { getDetails } from "../../actions/EntityDetailsActions";
 import EntityDetailsComponent from "../EntityDetailsComponent/EntityDetailsComponent";
 import TaskViewComponent from "../TaskViewComponent/TaskViewComponent";
-import { Dimmer, Loader, Segment, Card } from "semantic-ui-react";
+import { Dimmer, Loader, Segment, Card, Grid } from "semantic-ui-react";
 
 class ViewComponent extends Component {
   componentDidMount() {
@@ -40,7 +40,15 @@ class ViewComponent extends Component {
               }`}
             />
             <EntityDetailsComponent />
-            <TaskViewComponent />
+            <div className="project-container">
+              <Segment placeholder>
+                <Grid columns={1} relaxed="very" stackable>
+                  <Grid.Column verticalAlign="middle">
+                    <TaskViewComponent />
+                  </Grid.Column>
+                </Grid>
+              </Segment>
+            </div>
           </Card.Group>
         )}
       </Fragment>

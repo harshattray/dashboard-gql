@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2018-09-13T14:45:50+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T06:34:52+05:30
+ * @Last modified time: 2019-05-20T12:46:05+05:30
  */
 import React, { Component } from "react";
 import { Form, Loader } from "semantic-ui-react";
@@ -27,11 +27,11 @@ import { validate } from "../../validate";
 
 class SubmitDetailsForms extends Component {
   /**
-   * [handleSignUpSubmit Form submit handler]
+   * [handleDetailSubmit Form submit handler]
    * @param  {[type]} data [description]
    * @return {[type]}      [description]
    */
-  handleSignUpSubmit = data => {
+  handleDetailSubmit = data => {
     this.props.submitFormData(data);
   };
 
@@ -56,7 +56,7 @@ class SubmitDetailsForms extends Component {
     return (
       <Form
         name="userDataForm"
-        onSubmit={handleSubmit(this.handleSignUpSubmit)}
+        onSubmit={handleSubmit(this.handleDetailSubmit)}
         noValidate
       >
         <Form.Group className="ui grid">

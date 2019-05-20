@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-19T13:49:45+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T06:21:39+05:30
+ * @Last modified time: 2019-05-20T13:19:46+05:30
  */
 
 import React, { Fragment, Component } from "react";
@@ -10,9 +10,9 @@ import { Form, Card, Button, Segment, Dimmer, Loader } from "semantic-ui-react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { reduxForm, Field, formValueSelector, reset } from "redux-form";
-import { validate } from "../../validate";
 import { fetchTasks, openModal } from "../../actions/TaskActions";
 import CreateTasksModalComponent from "../CreateTasksModalComponent/CreateTasksModalComponent";
+import TaskListComponent from "../TaskListComponent/TaskListComponent";
 
 class TaskViewComponent extends Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ class TaskViewComponent extends Component {
             <Card.Content header="A list of tasks" />
             <Card.Content>
               {tasksInfo.tasks.length > 0 ? (
-                <p>TasksList</p>
+                <TaskListComponent />
               ) : (
                 <p>No tasks found</p>
               )}
@@ -53,7 +53,6 @@ class TaskViewComponent extends Component {
 
 function mapStateToProps({ carStack, form, tasksStack }) {
   return {
-    carInfo: carStack.carStackDetails,
     carId: carStack.carId,
     tasksInfo: tasksStack.tasksList,
     isFetchingTasks: tasksStack.isFetchingTasks
@@ -63,15 +62,6 @@ function mapStateToProps({ carStack, form, tasksStack }) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchTasks, openModal }, dispatch);
 }
-
-const afterSubmitdata = (result, dispatch) => dispatch(reset("listViewForm"));
-
-// SubmitDetailsForms = reduxForm({
-//   validate,
-//   form: "listViewForm",
-//   destroyOnUnmount: false,
-//   onSubmitSuccess: afterSubmitdata
-// })(SubmitDetailsForms);
 
 export default connect(
   mapStateToProps,
