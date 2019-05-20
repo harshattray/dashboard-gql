@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T23:32:45+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T23:46:16+05:30
+ * @Last modified time: 2019-05-21T00:19:29+05:30
  */
 import React from "react";
 import { shallow } from "enzyme";
@@ -19,7 +19,6 @@ describe("TaskListComponent", () => {
   });
 
   it("expect to render TasksList", () => {
-    console.log(wrapper.debug());
     expect(wrapper.find("tasksInfo").length).toBeGreaterThanOrEqual(0);
   });
 });

@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T03:56:12+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T14:18:46+05:30
+ * @Last modified time: 2019-05-21T00:15:31+05:30
  */
 import axios from "axios";
 import { query } from "gql-query-builder";
@@ -17,6 +17,12 @@ import {
 } from "./types";
 import { CREATE_TASKS, FETCH_TASKS, UPDATE_TASKS } from "./queries";
 import { axiosGraphQL } from "./queries";
+
+/**
+ * [fetchTasks fetchTasks action]
+ * @param  {[type]} carid [description]
+ * @return {[type]}       [description]
+ */
 
 export const fetchTasks = carid => async (dispatch, getState) => {
   dispatch(initFetchTasks());
@@ -35,6 +41,11 @@ export const fetchTasks = carid => async (dispatch, getState) => {
   }
 };
 
+/**
+ * [initFetchTasks initial loader handler]
+ * @return {[type]} [description]
+ */
+
 export const initFetchTasks = () => {
   return {
     type: INIT_FETCH_TASKS,
@@ -42,6 +53,12 @@ export const initFetchTasks = () => {
     createTaskStatus: false
   };
 };
+
+/**
+ * [createTasksAction create tasks action]
+ * @param  {[type]} formData [description]
+ * @return {[type]}          [description]
+ */
 
 export const createTasksAction = formData => async (dispatch, getState) => {
   const { taskTypes, taskComments } = formData;
@@ -64,6 +81,11 @@ export const createTasksAction = formData => async (dispatch, getState) => {
   }
 };
 
+/**
+ * [openModal openModal trigger]
+ * @return {[type]} [description]
+ */
+
 export const openModal = () => async dispatch => {
   try {
     dispatch({
@@ -74,6 +96,11 @@ export const openModal = () => async dispatch => {
     console.log(e);
   }
 };
+
+/**
+ * [closeModal closeMo trigger]
+ * @return {[type]} [description]
+ */
 
 export const closeModal = () => async (dispatch, getState) => {
   const { carId } = getState().carStack;
@@ -87,6 +114,13 @@ export const closeModal = () => async (dispatch, getState) => {
     console.log(e);
   }
 };
+
+/**
+ * [updateTask update task handler]
+ * @param  {[type]} completed [description]
+ * @param  {[type]} taskid    [description]
+ * @return {[type]}           [description]
+ */
 
 export const updateTask = (completed, taskid) => async (dispatch, getState) => {
   const { carId } = getState().carStack;
@@ -106,6 +140,11 @@ export const updateTask = (completed, taskid) => async (dispatch, getState) => {
     console.log(e);
   }
 };
+
+/**
+ * [initUpdatetasks tasks loader handler]
+ * @return {[type]} [description]
+ */
 
 export const initUpdatetasks = () => {
   return {

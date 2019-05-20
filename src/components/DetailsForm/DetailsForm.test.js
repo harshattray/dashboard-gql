@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T23:50:07+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T23:59:58+05:30
+ * @Last modified time: 2019-05-21T00:19:24+05:30
  */
 import React from "react";
 import { shallow } from "enzyme";
@@ -16,7 +16,6 @@ describe("DetailsForm", () => {
   });
 
   it("renders an HOC", () => {
-    console.log(wrapper.debug());
     expect(wrapper.find("Hoc").exists()).toBe(true);
   });
 });

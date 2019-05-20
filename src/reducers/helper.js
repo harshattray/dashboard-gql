@@ -2,13 +2,27 @@
  * @Author: harsha
  * @Date:   2019-05-19T05:12:36+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T13:21:33+05:30
+ * @Last modified time: 2019-05-21T00:18:42+05:30
+ *
  */
+
+/**
+ * [buildMakeJson makeJson builder for dropdoen]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
+
 export const buildMakeJson = build => {
   return build.make
     ? [{ key: build.make, text: build.make, value: build.make }]
     : null;
 };
+
+/**
+ * [buildTrimJson TrimJson builder for dropdoen]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
 
 export const buildTrimJson = build => {
   return build.trim
@@ -16,11 +30,23 @@ export const buildTrimJson = build => {
     : null;
 };
 
+/**
+ * [buildModelJson ModelJson builder for dropdoen]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
+
 export const buildModelJson = build => {
   return build.model
     ? [{ key: build.model, text: build.model, value: build.model }]
     : null;
 };
+
+/**
+ * [stringifyPhysicalStatus used to convert enum to string]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
 
 export const stringifyPhysicalStatus = build => {
   if (build.physicalStatus === "AT_OWNER") {
@@ -34,6 +60,12 @@ export const stringifyPhysicalStatus = build => {
   }
 };
 
+/**
+ * [stringifyLegalStatus  used to convert enum to string]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
+
 export const stringifyLegalStatus = build => {
   if (build.legalStatus === "OWNER") {
     return "Owner";
@@ -45,6 +77,12 @@ export const stringifyLegalStatus = build => {
     return null;
   }
 };
+
+/**
+ * [stringifyEngineType  used to convert enum to string]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
 
 export const stringifyEngineType = build => {
   if (build.engineType === "VEE") {
@@ -59,6 +97,12 @@ export const stringifyEngineType = build => {
     return null;
   }
 };
+
+/**
+ * [stringifySellingStatus  used to convert enum to string]
+ * @param  {[type]} build [description]
+ * @return {[type]}       [description]
+ */
 
 export const stringifySellingStatus = build => {
   if (build.sellingStatus === "SOLD") {

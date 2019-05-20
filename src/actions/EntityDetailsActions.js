@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:23:49+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T07:07:17+05:30
+ * @Last modified time: 2019-05-21T00:19:39+05:30
  */
 
 import axios from "axios";
@@ -18,6 +18,11 @@ import {
 } from "./types";
 import { FETCH_CAR_DATA, CREATE_TASKS, UPDATE_CAR } from "./queries";
 import { axiosGraphQL } from "./queries";
+
+/**
+ * [getDetails Fetch Car Details Query]
+ * @return {[type]} [description]
+ */
 
 export const getDetails = () => async (dispatch, getState) => {
   try {
@@ -37,12 +42,23 @@ export const getDetails = () => async (dispatch, getState) => {
   }
 };
 
+/**
+ * [initialdataFetch initialData Fetch loader ]
+ * @return {[type]} [description]
+ */
+
 export const initialdataFetch = () => {
   return {
     type: FETCHING_DATA,
     isFetching: true
   };
 };
+
+/**
+ * [submitFormData Car details form submission]
+ * @param  {[type]} formData [description]
+ * @return {[type]}          [description]
+ */
 
 export const submitFormData = formData => async (dispatch, getState) => {
   const {
@@ -71,7 +87,6 @@ export const submitFormData = formData => async (dispatch, getState) => {
         }
       }
     });
-    console.log(res);
     dispatch({
       type: UPDATE_CARS_SUBMIT,
       payload: res,
@@ -83,12 +98,24 @@ export const submitFormData = formData => async (dispatch, getState) => {
   }
 };
 
+/**
+ * [showTrim trim dropdown switch]
+ * @param  {[type]} value [description]
+ * @return {[type]}       [description]
+ */
+
 export const showTrim = value => dispatch => {
   dispatch({
     type: ENABLE_TRIM,
     enableTrim: value
   });
 };
+
+/**
+ * [showModelField model dropdoen switch]
+ * @param  {[type]} value [description]
+ * @return {[type]}       [description]
+ */
 
 export const showModelField = value => dispatch => {
   dispatch({
