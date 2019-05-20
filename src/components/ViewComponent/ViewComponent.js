@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-17T01:19:53+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T10:54:34+05:30
+ * @Last modified time: 2019-05-20T16:57:21+05:30
  */
 import React, { Component, Fragment } from "react";
 import { bindActionCreators } from "redux";
@@ -16,7 +16,7 @@ import EntityDetailsComponent from "../EntityDetailsComponent/EntityDetailsCompo
 import TaskViewComponent from "../TaskViewComponent/TaskViewComponent";
 import { Dimmer, Loader, Segment, Card, Grid } from "semantic-ui-react";
 
-class ViewComponent extends Component {
+export class ViewComponent extends Component {
   componentDidMount() {
     this.props.getDetails();
   }

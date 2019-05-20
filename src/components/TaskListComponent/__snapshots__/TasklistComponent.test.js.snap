@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskListComponent contains RenderTaskList 1`] = `ShallowWrapper {}`;
