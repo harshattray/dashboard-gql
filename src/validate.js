@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-18T05:31:55+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-19T08:08:23+05:30
+ * @Last modified time: 2019-05-20T14:11:01+05:30
  */
 
 export const validate = values => {
@@ -15,6 +15,9 @@ export const validate = values => {
   }
   if (!values.make) {
     errors.make = "Please Select Make value";
+  }
+  if (!values.taskComments) {
+    errors.taskComments = "Comments are required";
   }
   return errors;
 };

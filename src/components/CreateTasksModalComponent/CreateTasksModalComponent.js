@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T05:31:43+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T07:09:37+05:30
+ * @Last modified time: 2019-05-20T14:15:18+05:30
  */
 import React, { Fragment, Component } from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";

@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T03:56:12+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T13:34:04+05:30
+ * @Last modified time: 2019-05-20T14:18:46+05:30
  */
 import axios from "axios";
 import { query } from "gql-query-builder";
@@ -38,7 +38,8 @@ export const fetchTasks = carid => async (dispatch, getState) => {
 export const initFetchTasks = () => {
   return {
     type: INIT_FETCH_TASKS,
-    isFetchingTasks: true
+    isFetchingTasks: true,
+    createTaskStatus: false
   };
 };
 
@@ -55,7 +56,8 @@ export const createTasksAction = formData => async (dispatch, getState) => {
     });
     dispatch({
       type: INIT_CREATE_TASKS,
-      payload: res
+      payload: res,
+      createTaskStatus: true
     });
   } catch (error) {
     console.log(error);

@@ -2,7 +2,7 @@
  * @Author: harsha
  * @Date:   2019-05-20T04:21:14+05:30
  * @Last modified by:   harsha
- * @Last modified time: 2019-05-20T13:33:33+05:30
+ * @Last modified time: 2019-05-20T14:18:43+05:30
  */
 
 import {
@@ -17,7 +17,7 @@ import {
 const initial_state = {
   isFetchingTasks: true,
   openModalSwitch: false,
-  isUpdatingTasks: false
+  createTaskStatus: false
 };
 
 export default (state = initial_state, action) => {
@@ -26,12 +26,14 @@ export default (state = initial_state, action) => {
       return {
         ...state,
         carTasks: action.payload.data,
-        isFetching: action.isFetching
+        isFetching: action.isFetching,
+        createTaskStatus: action.createTaskStatus
       };
     case INIT_FETCH_TASKS:
       return {
         ...state,
-        isFetchingTasks: action.isFetchingTasks
+        isFetchingTasks: action.isFetchingTasks,
+        createTaskStatus: action.createTaskStatus
       };
     case FETCH_TASKS_DATA:
       return {
