@@ -9,13 +9,13 @@ import React from "react";
 import { Form, Loader } from "semantic-ui-react";
 
 /**
- * [renderFields renders input Fields and takes in relevant values]
+ * [RenderFields renders input Fields and takes in relevant values]
  * @param  {String} label       [Input label]
  * @param  {String} placeholder [Imput placeholder]
  * @param  {String} name        [Input Name]
  * @return {Object}             [Input params Object]
  */
-export const renderFields = ({
+export const RenderFields = ({
   label,
   type,
   placeholder,

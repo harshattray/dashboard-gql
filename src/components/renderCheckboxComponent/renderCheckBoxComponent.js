@@ -9,7 +9,7 @@ import React from "react";
 import { Form } from "semantic-ui-react";
 
 /**
- * [renderCheckBox checbox handler and dispatcher]
+ * [RenderCheckBox checbox handler and dispatcher]
  * @param  {[type]} name     [description]
  * @param  {[type]} label    [description]
  * @param  {[type]} input    [description]
@@ -18,7 +18,7 @@ import { Form } from "semantic-ui-react";
  * @return {[type]}          [description]
  */
 
-export const renderCheckBox = ({
+export const RenderCheckBox = ({
   name,
   label,
   input: { value, onChange, ...input },

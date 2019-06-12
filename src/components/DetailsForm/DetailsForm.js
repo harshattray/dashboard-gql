@@ -15,8 +15,8 @@ import {
   showModelField
 } from "../../actions/EntityDetailsActions";
 import { Button, Header, Icon, Modal } from "semantic-ui-react";
-import { renderDropdown } from "../renderDropdownComponent/renderDropdownComponent";
-import { renderCarOptions } from "../renderDropdownComponent/renderOptionsComponent";
+import { RenderDropdown } from "../RenderDropdownComponent/RenderDropdownComponent";
+import { RenderCarOptions } from "../RenderDropdownComponent/renderOptionsComponent";
 import {
   physicalstatus,
   legalStatus,
@@ -63,7 +63,7 @@ export class SubmitDetailsForms extends Component {
           <div className="row">
             <Field
               name="physicalStatus"
-              component={renderDropdown}
+              component={RenderDropdown}
               placeholder={
                 physicalStatusCheck ? physicalStatusCheck : "Physical Status"
               }
@@ -72,14 +72,14 @@ export class SubmitDetailsForms extends Component {
             />
             <Field
               name="legalStatus"
-              component={renderDropdown}
+              component={RenderDropdown}
               placeholder={legalStatusCheck ? legalStatusCheck : "Legal Status"}
               label="Legal Status"
               options={legalStatus[0].legal_status}
             />
             <Field
               name="sellingStatus"
-              component={renderDropdown}
+              component={RenderDropdown}
               placeholder={
                 sellingStatusCheck ? sellingStatusCheck : "Selling Status"
               }
@@ -88,7 +88,7 @@ export class SubmitDetailsForms extends Component {
             />
             <Field
               name="engineType"
-              component={renderDropdown}
+              component={RenderDropdown}
               placeholder={engineTypeCheck ? engineTypeCheck : "Engine Type"}
               label="Engine Type"
               options={engineType[0].engine_type}
@@ -97,7 +97,7 @@ export class SubmitDetailsForms extends Component {
           <div className="row">
             <Field
               name="make"
-              component={renderCarOptions}
+              component={RenderCarOptions}
               placeholder={carInfo.make ? carInfo.make : "Select Make"}
               label="Make"
               showModelField={showModelField}
@@ -107,7 +107,7 @@ export class SubmitDetailsForms extends Component {
             />
             <Field
               name="model"
-              component={renderCarOptions}
+              component={RenderCarOptions}
               placeholder={carInfo.model ? carInfo.model : "Select Model"}
               label="Model"
               showTrim={showTrim}
@@ -117,7 +117,7 @@ export class SubmitDetailsForms extends Component {
             />
             <Field
               name="trim"
-              component={renderCarOptions}
+              component={RenderCarOptions}
               placeholder={carInfo.trim ? carInfo.trim : "Select Trim"}
               label="Trim"
               options={trimJson}
