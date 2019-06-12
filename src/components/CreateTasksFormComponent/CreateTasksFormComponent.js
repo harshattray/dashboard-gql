@@ -11,8 +11,8 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { reduxForm, Field, formValueSelector, reset } from "redux-form";
 import { taskTypes } from "../constants";
-import { renderDropdown } from "../renderDropdownComponent/renderDropdownComponent";
-import { renderFields } from "../renderFieldsComponent/renderFieldsComponents";
+import { RenderDropdown } from "../RenderDropdownComponent/RenderDropdownComponent";
+import { RenderFields } from "../RenderFieldsComponent/RenderFieldsComponents";
 import { createTasksAction } from "../../actions/TaskActions";
 import { validate } from "../../validate";
 
@@ -33,14 +33,14 @@ class CreateTaskForm extends Component {
             <div className="row">
               <Field
                 name="taskTypes"
-                component={renderDropdown}
+                component={RenderDropdown}
                 placeholder="Select Task Type"
                 label="Select Task Type"
                 options={taskTypes[0].task_types}
               />
               <Field
                 name="taskComments"
-                component={renderFields}
+                component={RenderFields}
                 placeholder="Enter Comments here"
                 required
                 label="Enter Comments"

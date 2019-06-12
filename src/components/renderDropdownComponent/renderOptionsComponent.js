@@ -9,7 +9,7 @@ import React from "react";
 import { Form, Loader } from "semantic-ui-react";
 
 /**
- * [renderCarOptions Dropdown select handler]
+ * [RenderCarOptions Dropdown select handler]
  * @param  {[type]} label       [description]
  * @param  {[type]} placeholder [description]
  * @param  {[type]} name        [description]
@@ -18,7 +18,7 @@ import { Form, Loader } from "semantic-ui-react";
  * @return {[type]}             [description]
  */
 
-export const renderCarOptions = ({
+export const RenderCarOptions = ({
   label,
   placeholder,
   name,

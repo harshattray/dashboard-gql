@@ -19,7 +19,7 @@ import {
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { reduxForm, Field, formValueSelector, reset } from "redux-form";
-import { renderCheckBox } from "../renderCheckboxComponent/renderCheckBoxComponent";
+import { RenderCheckBox } from "../RenderCheckBoxComponent/RenderCheckBoxComponent";
 import { updateTask } from "../../actions/TaskActions";
 
 export class TaskListComponent extends Component {
@@ -55,7 +55,7 @@ export const RenderTaskList = ({ tasksInfo, updateTask, handleSubmit }) => {
                 <div className="row">
                   <Field
                     name="taskCheckBox"
-                    component={renderCheckBox}
+                    component={RenderCheckBox}
                     label="Change Status"
                     updateTask={updateTask}
                     handleSubmit={handleSubmit}
