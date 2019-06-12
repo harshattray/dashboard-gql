@@ -1,6 +1,6 @@
 ## Basic Overview
 
-dashboard-gql Built using React, Redux, Styled-components, Webpack and leverages the power of a Graphql based backend
+dashboard-gql Built using React, Redux, Webpack and leverages the power of a Graphql based backend
 
 - GraphQl queries are bound to the standard react, redux setup.
 
